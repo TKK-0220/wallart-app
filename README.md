@@ -83,3 +83,6 @@ Render
 
 ## 画面推移図
 https://www.figma.com/design/2TM60mZYTqL030KqqtFgeB/Untitled?node-id=0-1&t=zOUYIZX8LlCJMlIz-1
+
+### ER図
+https://gyazo.com/f2c90dfc0c9004afcc2b1ac78b7b3376
