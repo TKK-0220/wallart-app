@@ -81,5 +81,5 @@ Render
 - 使用予定のライブラリ
 基本機能に注力。TailwindCSSやBootstrapでデザイン実装の工数を抑える。html2canvasで診断結果を画像としてダウンロードできるようにする。
 
-
-
+## 画面推移図
+https://www.figma.com/design/2TM60mZYTqL030KqqtFgeB/Untitled?node-id=0-1&t=zOUYIZX8LlCJMlIz-1
