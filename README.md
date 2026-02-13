@@ -45,9 +45,9 @@
 MVP
 ・診断フォーム: 壁・家具の幅入力、飾る場所の選択。
 ・計算・判定ロジック: 黄金比を用いた推奨サイズの算出。
+・理想値に近い市販サイズをDBから抽出・表示。
 
 本リリース
-・理想値に近い市販サイズをDBから抽出・表示。
 ・複数枚レイアウト: 黄金比の枠内に複数の写真を並べるパターンの提案。
 ・縦長・横長のフレームでそれぞれの推奨サイズを提案できるようにする。
 ・html2canvasで診断結果を1枚の画像としてダウンロードできるようにする。
@@ -85,4 +85,5 @@ Render
 https://www.figma.com/design/2TM60mZYTqL030KqqtFgeB/Untitled?node-id=0-1&t=zOUYIZX8LlCJMlIz-1
 
 ### ER図
-https://gyazo.com/f2c90dfc0c9004afcc2b1ac78b7b3376
+https://gyazo.com/154e63f353f3f82d561657b3ad0d0077
+
