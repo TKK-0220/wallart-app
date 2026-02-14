@@ -85,5 +85,4 @@ Render
 https://www.figma.com/design/2TM60mZYTqL030KqqtFgeB/Untitled?node-id=0-1&t=zOUYIZX8LlCJMlIz-1
 
 ### ER図
-https://gyazo.com/154e63f353f3f82d561657b3ad0d0077
-
+https://gyazo.com/2f082f746f862bd82114b51fae784297
