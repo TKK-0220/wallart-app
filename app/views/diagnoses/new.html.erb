@@ -1,0 +1,33 @@
+<%= form_with model: @diagnosis_form, url: diagnoses_path, method: :post, local: true do |f| %>
+    <% if @diagnosis_form&.errors&.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@diagnosis_form.errors.count, "個のエラー") %> があります:</h4>
+        <ul>
+        <% @diagnosis_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div>
+    <label>壁・家具の幅（mm）</label>
+    <%= f.number_field :base_width, placeholder: "例: 1200" %>
+  </div>
+
+  <div>
+    <label>飾る場所</label>
+    <%= f.select :location_type, [['壁', 'wall'], ['家具', 'furniture']] %>
+  </div>
+
+  <div>
+    <label>額縁の向き</label>
+    <%= f.select :direction, [
+      ['指定なし（両方表示）', ''],
+      ['縦向き', 'vertical'],
+      ['横向き', 'horizontal']
+    ], include_blank: false %>
+  </div>
+
+  <%= f.submit "診断する" %>
+<% end %>
