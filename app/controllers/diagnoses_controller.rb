@@ -1,72 +1,50 @@
 class DiagnosesController < ApplicationController
-  def new
-    @diagnosis_form = DiagnosisForm.new
+def new
+@diagnosis_form = DiagnosisForm.new
+end
 
-    # セッションにエラー情報がある場合は復元
-    if session[:diagnosis_errors].present?
-      @diagnosis_form.assign_attributes(session[:diagnosis_params] || {})
-      @diagnosis_form.valid?
-      session[:diagnosis_errors].each do |attribute, messages|
-        messages.each do |message|
-          @diagnosis_form.errors.add(attribute, message)
-        end
-      end
+def create
+@diagnosis_form = DiagnosisForm.new(diagnosis_params)
 
-      # セッションをクリア
-      session.delete(:diagnosis_errors)
-      session.delete(:diagnosis_params)
-    end
-  end
+if @diagnosis_form.valid?
+  # 診断処理
+  recommended_size = RatioLogic.new(
+    @diagnosis_form.base_width,
+    @diagnosis_form.location_type
+  ).call
 
-  def create
-    @diagnosis_form = DiagnosisForm.new(diagnosis_params) # ← ここで diagnosis_params を使う
+  frames = FramesChoice.new(recommended_size, @diagnosis_form.direction).call
 
-    if @diagnosis_form.valid?
-      # 計算処理
-      recommended_size = RatioLogic.new(
-        @diagnosis_form.base_width,
-        @diagnosis_form.location_type
-      ).call
+  # セッションに診断結果を保存
+  session[:diagnosis_result] = {
+    recommended_size: recommended_size,
+    frames: frames.pluck(:id)
+  }
 
-      frames = FramesChoice.new(recommended_size, @diagnosis_form.direction).call
+  redirect_to result_diagnoses_path
+else
+  # バリデーション失敗時は render を使う
+  render :new, status: :unprocessable_entity
+end
+end
 
-      # セッションに診断結果を保存
-      session[:diagnosis_result] = {
-        recommended_size: recommended_size,
-        frames: frames.pluck(:id) # ID だけ保存
-      }
+def result
+result = session[:diagnosis_result]
 
-      # 診断結果画面にリダイレクト
-      redirect_to result_diagnoses_path
-    else
-      # バリデーション失敗時の処理
-      session[:diagnosis_errors] = @diagnosis_form.errors.messages
-      session[:diagnosis_params] = diagnosis_params.to_h
+if result.blank?
+  redirect_to new_diagnosis_path, alert: "診断を行ってください"
+  return
+end
 
-      # 診断画面にリダイレクト
-      redirect_to new_diagnosis_path
-    end
-  end
+@recommended_size = result["recommended_size"]
+@frames = Frame.where(id: result["frames"])
 
-  def result
-    # セッションから診断結果を取得
-    result = session[:diagnosis_result]
+session.delete(:diagnosis_result)
+end
 
-    if result.blank?
-      redirect_to new_diagnosis_path, alert: "診断を行ってください"
-      return
-    end
+private
 
-    @recommended_size = result["recommended_size"]
-    @frames = Frame.where(id: result["frames"])
-
-    # セッションをクリア
-    session.delete(:diagnosis_result)
-  end
-
-  private
-
-  def diagnosis_params
-    params.require(:diagnosis_form).permit(:base_width, :location_type, :direction)
-  end
+def diagnosis_params
+params.require(:diagnosis_form).permit(:base_width, :location_type, :direction)
+end
 end
