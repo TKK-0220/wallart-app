@@ -1,18 +1,18 @@
 <%= form_with model: @diagnosis_form, url: diagnoses_path, method: :post, local: true do |f| %>
   <%= render 'shared/error_messages', object: @diagnosis_form %>
 
-  <div>
-    <label>壁・家具の幅（mm）</label>
+  <div class="mb-3">
+    <%= f.label :base_width %>
     <%= f.number_field :base_width, placeholder: "例: 1200" %>
   </div>
 
-  <div>
-    <label>飾る場所</label>
+  <div class="mb-3">
+    <%= f.label :location_type %>
     <%= f.select :location_type, [['壁', 'wall'], ['家具', 'furniture']] %>
   </div>
 
-  <div>
-    <label>額縁の向き</label>
+  <div class="mb-3">
+    <%= f.label :direction %>
     <%= f.select :direction, [
       ['指定なし（両方表示）', ''],
       ['縦向き', 'vertical'],
