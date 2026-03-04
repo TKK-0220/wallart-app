@@ -5,6 +5,10 @@
          <%= image_tag "logo.png", alt: "ロゴ", class: "footer-logo" %>
         <% end %>
     </div>
+    <div class="user-agreement">
+       <%= link_to t('pages.user_agreement'),page_path('user_agreement') %>
+       <%= link_to t('pages.privacy_policy'),page_path('privacy_policy') %>
+    </div>
     <p class="copyright">©︎2025 Ratio.</p>
   </div>
 </footer>

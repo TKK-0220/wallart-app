@@ -4,8 +4,9 @@
 
   .logo {
     width: 100%;
-    max-width: 150px;
+    max-width: 80px;
     line-height: 0;
+    margin: 0 auto 13px;
 
     a {
       display: block;
@@ -16,15 +17,36 @@
     }
   }
 
-  .inner_wrapper {
+  .user-agreement {
     display: flex;
+    gap: 15px; // リンク間の間隔
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 0 auto 10px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 10px;
+      white-space: nowrap;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      // 区切り線を追加
+      &:not(:last-child)::after {
+        content: '|';
+        margin-left: 15px;
+        color: #fff;
+      }
+    }
   }
 
   .copyright {
     color: #fff;
     font-size: 10px;
+    text-align: center;
   }
 }
 
@@ -38,9 +60,9 @@
 
     .logo {
       width: 100%;
-      max-width: 75px; // スマホ版ではロゴを小さくする
+      max-width: 60px;
       line-height: 0;
-      margin: 0 auto 8px; // 中央揃え + 下に余白
+      margin: 0 auto 8px;
 
       a {
         display: block;
@@ -50,6 +72,22 @@
         height: auto;
       }
     }
+
+    .user-agreement {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+
+    a {
+      font-size: 10px;
+      text-align: center;
+
+      &:not(:last-child)::after {
+        display: none;
+      }
+    }
+  }
 
     .inner_wrapper {
       display: flex;
