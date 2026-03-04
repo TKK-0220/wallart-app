@@ -3,3 +3,6 @@ ja:
     new:
       title: 診断フォーム
       submit: 診断する
+  pages:
+    user_agreement: 利用規約
+    privacy_policy: プライバシーポリシー
