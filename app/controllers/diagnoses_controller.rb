@@ -23,7 +23,6 @@ if @diagnosis_form.valid?
 
   redirect_to result_diagnoses_path
 else
-  # バリデーション失敗時は render を使う
   render :new, status: :unprocessable_entity
 end
 end
