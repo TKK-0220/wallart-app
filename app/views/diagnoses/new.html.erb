@@ -1,24 +1,28 @@
-<%= form_with model: @diagnosis_form, url: diagnoses_path, method: :post, local: true do |f| %>
-  <%= render 'shared/error_messages', object: @diagnosis_form %>
+<div class="diagnosis-form-wrapper">
+  <h5 class="section-title">理想のアートサイズを診断</h5>
 
-  <div class="mb-3">
-    <%= f.label :base_width %>
-    <%= f.number_field :base_width, placeholder: "例: 1200" %>
-  </div>
+  <%= form_with model: @diagnosis_form, url: diagnoses_path, method: :post, local: true do |f| %>
+    <%= render 'shared/error_messages', object: @diagnosis_form %>
 
-  <div class="mb-3">
-    <%= f.label :location_type %>
-    <%= f.select :location_type, [['壁', 'wall'], ['家具', 'furniture']] %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :base_width, "設置場所の幅（mm）" %>
+      <%= f.number_field :base_width, placeholder: "例: 1200" %>
+    </div>
 
-  <div class="mb-3">
-    <%= f.label :direction %>
-    <%= f.select :direction, [
-      ['指定なし（両方表示）', ''],
-      ['縦向き', 'vertical'],
-      ['横向き', 'horizontal']
-    ], include_blank: false %>
-  </div>
+    <div class="mb-3">
+      <%= f.label :location_type, "設置場所" %>
+      <%= f.select :location_type, [['壁', 'wall'], ['家具', 'furniture']] %>
+    </div>
 
-  <%= f.submit "診断する" %>
-<% end %>
+    <div class="mb-3">
+      <%= f.label :direction, "アートの向き" %>
+      <%= f.select :direction, [
+        ['指定なし（両方表示）', ''],
+        ['縦向き', 'vertical'],
+        ['横向き', 'horizontal']
+      ], include_blank: false %>
+    </div>
+
+    <%= f.submit "診断する" %>
+  <% end %>
+</div>

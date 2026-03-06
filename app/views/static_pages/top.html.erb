@@ -1,4 +1,40 @@
-<h1>hello</div>
+<div class="top-intro">
+  <p>RATIO.は、壁や家具の幅を入力するだけで<br>
+  黄金比に基づいた理想のアートサイズを診断するサービスです。</p>
+  <p>センスに頼らず、数字で"ちょうどいい"を見つけます。</p>
+</div>
 
+<div class="cta-button">
+  <h3><%= link_to "診断する", new_diagnosis_path %></h3>
+</div>
 
-<h2><%=link_to "診断する",new_diagnosis_path%></h2>
+<section class="reason wrapper">
+  <h4 class="section-title">３ステップでわかる</h4>
+  <ul class="item">
+    <li>
+      <div class="img">
+        <%= image_tag "IMG1.png", alt: "1" %>
+      </div>
+      <p class="title">測る</p>
+      <p>壁や家具の横幅を測ります。</p>
+    </li>
+    <li>
+      <div class="img">
+        <%= image_tag "IMG2.png", alt: "2" %>
+      </div>
+      <p class="title">入力する</p>
+      <p>幅・飾る場所・額縁の向きを指定。</p>
+    </li>
+    <li>
+      <div class="img">
+        <%= image_tag "IMG3.png", alt: "3" %>
+      </div>
+      <p class="title">理想サイズがわかる</p>
+      <p>黄金比に基づいたサイズを提示。</p>
+    </li>
+  </ul>
+</section>
+
+<div class="cta-button">
+  <h3><%= link_to "診断する", new_diagnosis_path %></h3>
+</div>
