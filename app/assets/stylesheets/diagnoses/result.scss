@@ -1,0 +1,171 @@
+.diagnosis-result-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  // タイトル
+  .result-title {
+    font-size: 28px;
+    font-weight: 460;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #324658;
+  }
+
+  // 結果表示エリア
+  .result-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    // 推奨サイズの表示
+    .recommended-size {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      text-align: center;
+
+      .size-label {
+        font-size: 16px;
+        color: #29211f;
+        margin-bottom: 8px;
+      }
+
+      .size-value {
+        font-size: 50px;
+        font-weight: 530;
+        color: #324658;
+      }
+    }
+
+    // 額縁リストのセクション
+    .frames-section {
+      margin-bottom: 30px;
+
+      .section-label {
+        font-size: 18px;
+        font-weight: 580;
+        color: #29211f;
+        margin-bottom: 15px;
+      }
+
+      // 額縁リスト
+      .frames-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          background-color: #f8f9fa;
+          padding: 15px 20px;
+          margin-bottom: 10px;
+          border-radius: 5px;
+          transition: background-color 0.2s ease;
+
+          .frame-name {
+            font-weight: 500;
+            color: #324658;
+            margin-bottom: 5px;
+          }
+
+          .frame-size {
+            color: #666;
+            font-size: 14px;
+          }
+
+          .frame-direction {
+            display: inline-block;
+            padding: 2px 8px;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-left: 8px;
+
+            // 縦向き
+            &.vertical {
+              background-color: #839ec2;
+            }
+
+            // 横向き
+            &.horizontal {
+              background-color: #bfb865;
+            }
+          }
+        }
+      }
+    }
+
+    .retry-button {
+      display: block;
+      width: 100%;
+      padding: 15px 40px;
+      background-color: #d5a945;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 450;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #d0b36f;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .diagnosis-result-wrapper {
+    padding: 20px 15px;
+
+    .result-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .result-content {
+      padding: 30px 20px;
+
+      .recommended-size {
+        padding: 15px;
+
+        .size-label {
+          font-size: 12px;
+        }
+
+        .size-value {
+          font-size: 28px;
+        }
+      }
+
+      .frames-section {
+        .section-label {
+          font-size: 16px;
+        }
+
+        .frames-list {
+          li {
+            padding: 12px 15px;
+
+            .frame-name {
+              font-size: 14px;
+            }
+
+            .frame-size {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .retry-button {
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: 450;
+      }
+    }
+  }
+}

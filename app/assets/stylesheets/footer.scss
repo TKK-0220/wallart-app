@@ -1,5 +1,5 @@
 #footer {
-  background-color: #666;
+  background-color: #4c6f9e;
   padding: 30px 0;
 
   .logo {
@@ -12,8 +12,10 @@
       display: block;
     }
     img {
-      width: 100%;
+      width: 105px;
       height: auto;
+      margin-right: 15px;
+      margin-bottom: 5px;
     }
   }
 
@@ -23,44 +25,47 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto 10px;
+    margin-top: 10px;
 
     a {
-      color: #fff;
+      color: #fbfaf1;
       text-decoration: none;
-      font-size: 10px;
+      font-size: 13px;
+      margin-left: 0px;
+      margin-right: 0px;
       white-space: nowrap;
+
+      &:not(:last-child)::after {
+        content: '|';
+        margin-left: 20px;
+        color: #fbfaf1;;
+      }
 
       &:hover {
         text-decoration: underline;
-      }
-
-      // 区切り線を追加
-      &:not(:last-child)::after {
-        content: '|';
-        margin-left: 15px;
-        color: #fff;
       }
     }
   }
 
   .copyright {
-    color: #fff;
-    font-size: 10px;
+    color: #fbfaf1;
+    font-size: 14px;
     text-align: center;
+    margin-top: 20px;
   }
 }
 
 // スマホ版
 @media screen and (max-width: 767px) {
   #footer {
-    background-color: #666;
+    background-color: #4c6f9e;
     padding: 20px 15px;
     min-height: 60px;
     position: relative;
 
     .logo {
       width: 100%;
-      max-width: 60px;
+      max-width: 90px;
       line-height: 0;
       margin: 0 auto 8px;
 
@@ -97,8 +102,8 @@
     }
 
     .copyright {
-      color: #fff;
-      font-size: 8px;
+      color: #fbfaf1;;
+      font-size: 5px;
       text-align: center;
       line-height: 1.0;
     }
