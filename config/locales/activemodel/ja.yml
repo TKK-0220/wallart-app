@@ -7,11 +7,3 @@ ja:
         base_width: 壁・家具の幅
         location_type: 飾る場所
         direction: 額縁の向き
-    errors:
-      models:
-        diagnosis_form:
-          attributes:
-            base_width:
-              blank: を入力してください
-              not_a_number: は数値で入力してください
-              greater_than: は0より大きい値を入力してください
