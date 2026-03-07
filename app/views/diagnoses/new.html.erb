@@ -6,6 +6,11 @@
 
     <div class="mb-3">
       <%= f.label :base_width, "設置場所の幅（mm）" %>
+      <div class="help-text">
+        <p class="help-title">★各項目の最小値</p>
+        <p>・壁を選択した場合   縦向き: 199mm~ 横向き: 284mm~</p>
+        <p>・家具を選択した場合   縦向き: 144mm~ 横向き: 205mm~</p>
+      </div>
       <%= f.number_field :base_width, placeholder: "例: 1200 (半角)" %>
     </div>
 
